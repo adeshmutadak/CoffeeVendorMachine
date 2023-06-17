@@ -24,25 +24,25 @@ public  class  CoffeeVendorMachine {
     private int totalEarnings;
 
     public CoffeeVendorMachine() {
-        int water = 0;
-        int beans = 0;
-        int milk = 0;
-        int money = 0;
-        int espressoWater = 250;
-        int espressoBeans = 16;
-        int latteWater = 350;
-        int latteMilk = 75;
-        int latteBeans = 20;
-        int cappuccinoWater = 200;
-        int cappuccinoMilk = 100;
-        int cappuccinoBeans = 12;
-        int espressoPrice = 4;
-        int lattePrice = 7;
-        int cappuccinoPrice = 6;
-        int espressoCount = 0;
-        int latteCount = 0;
-        int cappuccinoCount = 0;
-        int totalEarnings = 0;
+         water = 0;
+         beans = 0;
+         milk = 0;
+         money = 0;
+         espressoWater = 250;
+         espressoBeans = 16;
+         latteWater = 350;
+         latteMilk = 75;
+         latteBeans = 20;
+         cappuccinoWater = 200;
+         cappuccinoMilk = 100;
+         cappuccinoBeans = 12;
+         espressoPrice = 4;
+         lattePrice = 7;
+         cappuccinoPrice = 6;
+         espressoCount = 0;
+         latteCount = 0;
+         cappuccinoCount = 0;
+         totalEarnings = 0;
     }
 
     public void run() {
@@ -51,7 +51,7 @@ public  class  CoffeeVendorMachine {
         do {
             System.out.println("Please select an action:");
             System.out.println("1. Buy Coffee");
-            System.out.println("2. Fill Materials");
+            System.out.println("2. Fill Ingredients ");
             System.out.println("3. Take Money");
             System.out.println("4. Show Ingredients and Money in Machine");
             System.out.println("5. Analytics");
@@ -78,6 +78,7 @@ public  class  CoffeeVendorMachine {
                     break;
                 default:
                     System.out.println("Invalid command! Please try again.");
+                    break;
             }
         } while (!command.equals("0"));
         sc.close();
@@ -95,15 +96,19 @@ public  class  CoffeeVendorMachine {
         switch (coffeeTyped) {
             case "1":
                 makeCoffee("Espresso");
+                break;
             case "2":
                 makeCoffee("Latte");
-                ;
+                break ;
             case "3":
                 makeCoffee("Cappuccino");
+                break;
             case "0":
                 makeCoffee("Returning to main menu");
+                break;
             default:
                 System.out.println("Please Select Valid Coffee");
+                break;
         }
     }
 
@@ -151,10 +156,11 @@ public  class  CoffeeVendorMachine {
         int milkAdd = scn.nextInt();
         System.out.println("Enter Amount Beans you need to add");
         int beansAdd = scn.nextInt();
+        scn.nextLine();
         water += waterAdd;
         milk += milkAdd;
         beans += beansAdd;
-
+        System.out.println("Ingredient added Successfully");
     }
 
     private void takeMoney() {
@@ -165,7 +171,7 @@ public  class  CoffeeVendorMachine {
     private void showIngredients() {
         System.out.println("Water : Rs. " + water + "ml");
         System.out.println("Milk : Rs. " + milk + "ml");
-        System.out.println("Beans :Rs. " + beans + "Unite");
+        System.out.println("Beans :Rs. " + beans + " Unite");
         System.out.println("Final Bill : Rs. " + money);
     }
 
@@ -174,9 +180,9 @@ public  class  CoffeeVendorMachine {
         System.out.println("Latte Sold" + latteCount);
         System.out.println("Cappuccino Sold" + cappuccinoCount);
         System.out.println("Total Ingredient Consumed");
-        System.out.println("Water" + espressoCount * espressoWater + latteCount * latteWater + cappuccinoCount * cappuccinoWater);
-        System.out.println("Milk" + latteCount * latteMilk + latteCount * latteBeans);
-        System.out.println("Beans" + cappuccinoCount * cappuccinoWater + cappuccinoCount * cappuccinoMilk + cappuccinoCount * cappuccinoBeans);
+        System.out.println("Water -> " + espressoCount * espressoWater + latteCount * latteWater + cappuccinoCount * cappuccinoWater);
+        System.out.println("Milk -> " + latteCount * latteMilk + latteCount * latteBeans);
+        System.out.println("Beans -> " + cappuccinoCount * cappuccinoWater + cappuccinoCount * cappuccinoMilk + cappuccinoCount * cappuccinoBeans);
     }
 
     public static void main(String[] args) {
